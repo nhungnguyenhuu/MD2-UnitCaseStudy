@@ -9,9 +9,9 @@
     </thead>
     <tbody>
     <?php if (!empty($notes)) {
-        foreach ($notes as $note):?>
+        foreach ($notes as $key=>$note):?>
         <tr>
-            <td><?php echo $note->id?></td>
+            <td><?php echo $note->$key+1?></td>
             <td><?php echo $note->title?></td>
             <td><?php echo $note->content?></td>
             <td><?php echo $note->name?></td>

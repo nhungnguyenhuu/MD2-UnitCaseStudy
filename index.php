@@ -1,5 +1,6 @@
 <?php
 
+use MVC\controller\Note_typeController;
 use MVC\controller\NoteController;
 use MVC\model\NoteModel;
 
@@ -7,7 +8,7 @@ require "vendor/autoload.php";
 
 
 $noteController = new NoteController();
-
+$noteTyleController = new Note_typeController();
 
 $page = $_GET["page"]??"";
 ?>
@@ -21,7 +22,7 @@ $page = $_GET["page"]??"";
     <title>Document</title>
 </head>
 <body>
-<a href="">Note_type</a>
+<a href="index.php?page=note_type-read">Note_type</a>
 <a href="index.php?page=note-read">Note</a>
 <?php
 switch ($page){
@@ -39,6 +40,22 @@ switch ($page){
         break;
     case "note-edit":
         $noteController->update();
+        break;
+
+    case "note_type-read":
+        $noteTyleController->getAll();
+        break;
+    case "note_type-delete":
+        $noteTyleController->delete();
+        break;
+    case "note_type-detail":
+        $noteTyleController->getById();
+        break;
+    case "note_type-create":
+        $noteTyleController->create();
+        break;
+    case "note_type-edit":
+        $noteTyleController->update();
         break;
 
     default:
