@@ -31,4 +31,14 @@ class NoteModel extends BaseModel
         $stmt->execute();
     }
 
+    public function update($data, $id)
+    {
+        $sql = "update notes set title =?, content = ?, type_id = ? where id = $id";
+        $stmt = $this->connect->prepare($sql);
+        $stmt->bindParam(1, $data["title"]);
+        $stmt->bindParam(2, $data["content"]);
+        $stmt->bindParam(3, $data["name"]);
+        $stmt->execute();
+    }
+
 }

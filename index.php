@@ -37,6 +37,10 @@ switch ($page){
     case "note-create":
         $noteController->create();
         break;
+    case "note-edit":
+        $noteController->update();
+        break;
+
     default:
 }
 ?>

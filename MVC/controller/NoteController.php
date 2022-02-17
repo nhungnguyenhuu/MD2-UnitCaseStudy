@@ -47,4 +47,17 @@ class NoteController
         }
     }
 
+    public function update()
+    {
+        if($_SERVER["REQUEST_METHOD"]=="GET"){
+            $noteTypeModel = new Note_TypeModel();
+            $noteTypes = $noteTypeModel->getAll();
+            $note = $this->noteModel->getById($_REQUEST["id"]);
+            include "MVC/view/note/edit.php";
+        }else{
+            $this->noteModel->update($_POST, $_REQUEST["id"]);
+            header("location:index.php?page=note-read");
+        }
+    }
+
 }

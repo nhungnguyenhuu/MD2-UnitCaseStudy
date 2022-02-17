@@ -16,7 +16,7 @@
             <td><?php echo $note->content?></td>
             <td><?php echo $note->name?></td>
             <td><a href="index.php?page=note-detail&id=<?php echo $note->id?>">Detail</a></td>
-            <td><a href="index.php?page=note-edit&id=<?php echo $note->id?>"></a>Edit</td>
+            <td><a href="index.php?page=note-edit&id=<?php echo $note->id?>">Edit</a></td>
             <td><a onclick="return confirm('Are you sure?')" href="index.php?page=note-delete&id=<?php echo $note->id?>">Delete</a></td>
 
         </tr>
