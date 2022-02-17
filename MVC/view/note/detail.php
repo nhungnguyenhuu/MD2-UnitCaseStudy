@@ -4,7 +4,11 @@
         <td><?php echo $note->title ?></td>
     </tr>
     <tr>
-        <td>Title</td>
+        <td>Content</td>
         <td><?php echo $note->content ?></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><?php echo $note->name ?></td>
     </tr>
 </table>

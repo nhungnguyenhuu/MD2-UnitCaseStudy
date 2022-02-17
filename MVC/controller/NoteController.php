@@ -2,6 +2,7 @@
 
 namespace MVC\controller;
 
+use MVC\model\Note_TypeModel;
 use MVC\model\NoteModel;
 
 class NoteController
@@ -16,6 +17,7 @@ class NoteController
     public function getAll()
     {
         $notes = $this->noteModel->getAll();
+
         include "MVC/view/note/read.php";
 
     }
@@ -36,13 +38,11 @@ class NoteController
     public function create()
     {
         if($_SERVER["REQUEST_METHOD"]=="GET"){
-            include "MVC/view/note/read.php";
+            $noteTypeModel = new Note_TypeModel();
+            $noteTypes = $noteTypeModel->getAll();
+            include "MVC/view/note/create.php";
         }else{
-            $data= [
-                "title" => $_REQUEST["title"],
-                "content" => $_REQUEST["content"]
-            ];
-            $this->noteModel->create($data);
+            $this->noteModel->create($_POST);
             header("location:index.php?page=note-read");
         }
     }
